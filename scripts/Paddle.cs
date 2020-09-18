@@ -20,20 +20,16 @@ public class Paddle : Area2D
     public override void _Process(float delta)
     {
         var velocity = new Vector2();
-        if (Input.IsActionJustPressed("ui_up"))
+        if (Input.IsActionPressed("ui_up"))
         {
             velocity.y -= 1;
         }
-        else if (Input.IsActionJustPressed("ui_down"))
+        else if (Input.IsActionPressed("ui_down"))
         {
             velocity.y += 1;
         }
 
-        if (velocity.Length() > 0)
-        {
-            velocity = velocity.Normalized() * Speed;
-        }
-
+        velocity *= Speed;
         Position += velocity * delta;
         Position = new Vector2(
             x: Mathf.Clamp(Position.x, 0, _screenSize.x),
