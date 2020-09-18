@@ -14,6 +14,7 @@ public class Paddle : Area2D
     {
         _screenSize = GetViewport().Size;
         _sprite = GetNode<Sprite>("Sprite");
+        Hide();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,5 +36,11 @@ public class Paddle : Area2D
             x: Mathf.Clamp(Position.x, 0, _screenSize.x),
             y: Mathf.Clamp(Position.y, 0, _screenSize.y)
         );
+    }
+
+    public void Start(Vector2 pos)
+    {
+        Position = pos;
+        Show();
     }
 }
