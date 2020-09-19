@@ -12,6 +12,7 @@ public class Main : Node
         //TODO: refactor into NewGame() function
         _score = 0;
 
+        // TODO: make position relative to screen size?
         var player = GetNode<Paddle>("Player");
         var playerPosition = GetNode<Position2D>("PlayerStartPosition");
         player.Start(playerPosition.Position);
