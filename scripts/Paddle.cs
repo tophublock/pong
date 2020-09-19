@@ -43,4 +43,15 @@ public class Paddle : Area2D
         Position = pos;
         Show();
     }
+
+    public void OnPaddleAreaEntered(Area2D area)
+    {
+        if (area is Ball ball)
+        {
+            var nx = -1 * ball.direction.x;
+            // Get number between [-1, 1)
+            var ny = ((float)new Random().NextDouble()) * 2 - 1;
+            ball.direction = new Vector2(nx, ny).Normalized();
+        }
+    }
 }
