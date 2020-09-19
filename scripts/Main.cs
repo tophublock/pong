@@ -16,6 +16,11 @@ public class Main : Node
         var playerPosition = GetNode<Position2D>("PlayerStartPosition");
         player.Start(playerPosition.Position);
 
+        var enemy  = GetNode<Paddle>("Enemy");
+        var enemyPosition = GetNode<Position2D>("EnemyStartPosition");
+        enemy.Start(enemyPosition.Position);
+
+
         var ball = GetNode<Ball>("Ball");
         var ballPosition = GetNode<Position2D>("BallStartPosition");
         ball.Start(ballPosition.Position);

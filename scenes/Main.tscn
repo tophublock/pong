@@ -22,3 +22,8 @@ position = Vector2( 100, 300 )
 position = Vector2( 512, 300 )
 
 [node name="Walls" parent="." instance=ExtResource( 4 )]
+
+[node name="EnemyStartPosition" type="Position2D" parent="."]
+position = Vector2( 924, 300 )
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
