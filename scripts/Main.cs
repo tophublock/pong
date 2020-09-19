@@ -6,7 +6,6 @@ public class Main : Node
 
     private int _score;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         //TODO: refactor into NewGame() function
