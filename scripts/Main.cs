@@ -13,8 +13,12 @@ public class Main : Node
         _score = 0;
 
         var player = GetNode<Paddle>("Player");
-        var startPosition = GetNode<Position2D>("PlayerStartPosition");
-        player.Start(startPosition.Position);
+        var playerPosition = GetNode<Position2D>("PlayerStartPosition");
+        player.Start(playerPosition.Position);
+
+        var ball = GetNode<Ball>("Ball");
+        var ballPosition = GetNode<Position2D>("BallStartPosition");
+        ball.Start(ballPosition.Position);
 
         // TODO: When Timer reaches 0, start game. Add signal
         GetNode<Timer>("StartTimer").Start();
