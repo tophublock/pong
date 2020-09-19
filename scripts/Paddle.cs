@@ -9,7 +9,6 @@ public class Paddle : Area2D
     private Vector2 _screenSize;
     private Sprite _sprite;
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
         _screenSize = GetViewport().Size;
@@ -17,24 +16,34 @@ public class Paddle : Area2D
         Hide();
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(float delta)
     {
+        var velocity = GetVelocity();
+        velocity *= Speed * delta;
+        _processPosition(velocity);
+    }
+
+    public virtual Vector2 GetVelocity()
+    {
         var velocity = new Vector2();
-        if (Input.IsActionPressed("ui_up"))
+        if (Input.IsKeyPressed((int)KeyList.W))
         {
             velocity.y -= 1;
         }
-        else if (Input.IsActionPressed("ui_down"))
+        else if (Input.IsKeyPressed((int)KeyList.S))
         {
             velocity.y += 1;
         }
+        return velocity;
+    }
 
-        velocity *= Speed;
-        Position += velocity * delta;
+    private void _processPosition(Vector2 velocity)
+    {
+        Vector2 position = Position;
+        position += velocity;
         Position = new Vector2(
-            x: Mathf.Clamp(Position.x, 0, _screenSize.x),
-            y: Mathf.Clamp(Position.y, 0, _screenSize.y)
+            x: Mathf.Clamp(position.x, 0, _screenSize.x),
+            y: Mathf.Clamp(position.y, 0, _screenSize.y)
         );
     }
 
