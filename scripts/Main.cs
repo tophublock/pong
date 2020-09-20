@@ -10,9 +10,7 @@ public class Main : Node
 
     public override void _Ready()
     {
-        //TODO: refactor into NewGame() function
-        _playerScore = 0;
-        _enemyScore = 0;
+        NewGame();
         _gui = GetNode<Gui>("Gui");
 
         // TODO: make position relative to screen size?
@@ -44,5 +42,24 @@ public class Main : Node
         }
 
         // TODO: reset game
+    }
+
+    private void NewGame()
+    {
+        _playerScore = 0;
+        _enemyScore = 0;
+    }
+
+    async private void GameOver()
+    {
+        var startTimer = GetNode<Timer>("StartTimer");
+        startTimer.Start();
+        await ToSignal(startTimer, "timeout");
+        _gui.PromptNewGame();
+    }
+
+    private void NewRound()
+    {
+        // Reset ball to middle
     }
 }

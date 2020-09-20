@@ -25,4 +25,10 @@ public class Gui : Control
         var enemyScore = _scoreContainer.GetNode<Label>("NinePatchRect/EnemyScore");
         enemyScore.Text = score.ToString();
     }
+
+    public void PromptNewGame()
+    {
+        _newGameContainer.Show();
+        // TODO: add button functions
+    }
 }
