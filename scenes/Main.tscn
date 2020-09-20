@@ -36,3 +36,4 @@ scale = Vector2( 1, 1.75 )
 script = ExtResource( 6 )
 
 [node name="Gui" parent="." instance=ExtResource( 7 )]
+[connection signal="OutOfBounds" from="Walls" to="." method="OnWallsOutOfBounds"]

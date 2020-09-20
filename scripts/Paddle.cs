@@ -6,6 +6,7 @@ public class Paddle : Area2D
 
     [Export]
     public int Speed = 400; // How fast paddle moves (px/sec)
+    private int _padding = 30;
     private Vector2 _screenSize;
     private Sprite _sprite;
 
@@ -42,8 +43,8 @@ public class Paddle : Area2D
         Vector2 position = Position;
         position += velocity;
         Position = new Vector2(
-            x: Mathf.Clamp(position.x, 0, _screenSize.x),
-            y: Mathf.Clamp(position.y, 0, _screenSize.y)
+            x: Mathf.Clamp(position.x, _padding, _screenSize.x - _padding),
+            y: Mathf.Clamp(position.y, _padding, _screenSize.y - _padding)
         );
     }
 

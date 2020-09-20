@@ -21,7 +21,7 @@ scale = Vector2( 3, 1 )
 shape = SubResource( 1 )
 
 [node name="TopWall" type="Area2D" parent="."]
-position = Vector2( 512, 5 )
+position = Vector2( 512, 10 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
