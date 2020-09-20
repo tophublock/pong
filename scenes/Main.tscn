@@ -17,8 +17,10 @@ one_shot = true
 position = Vector2( 100, 300 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 1, 1.75 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1.5, 1.5 )
 
 [node name="BallStartPosition" type="Position2D" parent="."]
 position = Vector2( 512, 300 )
@@ -29,4 +31,5 @@ position = Vector2( 512, 300 )
 position = Vector2( 924, 300 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
+scale = Vector2( 1, 1.75 )
 script = ExtResource( 6 )
