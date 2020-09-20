@@ -4,6 +4,8 @@ using System;
 public class Wall : Area2D
 {
 
+    [Signal]
+    public delegate void OutOfBounds();
     private bool _isSideWall = false;
 
     public override void _Ready()
@@ -25,6 +27,7 @@ public class Wall : Area2D
                 var nx = -1 * ball.direction.x;
                 var ny = ball.direction.y;
                 ball.direction = new Vector2(nx, ny).Normalized();
+                EmitSignal(nameof(OutOfBounds));
             }
             else
             {
