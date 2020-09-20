@@ -28,9 +28,15 @@ public class Main : Node
         GetNode<Timer>("StartTimer").Start();
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public void OnWallsOutOfBounds(string side)
+    {
+        if (side.Equals("left"))
+        {
+            // TODO: update enemy score
+        }
+        else if (side.Equals("right"))
+        {
+            // TODO: update player score
+        }
+    }
 }
