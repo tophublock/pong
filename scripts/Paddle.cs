@@ -6,6 +6,7 @@ public class Paddle : Area2D
 
     [Export]
     public int Speed = 400; // How fast paddle moves (px/sec)
+    private bool _isMoving = false;
     private int _padding = 30;
     private Vector2 _screenSize;
     private Sprite _sprite;
@@ -19,9 +20,12 @@ public class Paddle : Area2D
 
     public override void _Process(float delta)
     {
-        var velocity = GetVelocity();
-        velocity *= Speed * delta;
-        _processPosition(velocity);
+        if (_isMoving)
+        {
+            var velocity = GetVelocity();
+            velocity *= Speed * delta;
+            _processPosition(velocity);
+        }
     }
 
     public virtual Vector2 GetVelocity()
@@ -48,10 +52,20 @@ public class Paddle : Area2D
         );
     }
 
-    public void Start(Vector2 pos)
+    public void SetPosition(Vector2 pos)
     {
         Position = pos;
         Show();
+    }
+
+    public void Start()
+    {
+        _isMoving = true;
+    }
+
+    public void Stop()
+    {
+        _isMoving = false;
     }
 
     public void OnPaddleAreaEntered(Area2D area)

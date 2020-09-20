@@ -22,15 +22,19 @@ public class Ball : Area2D
         }
     }
 
-    public void Start(Vector2 pos)
+    public void SetPosition(Vector2 pos)
     {
         Position = pos;
         Show();
+    }
+
+    public void Start()
+    {
         _isMoving = true;
     }
 
     public void Stop()
     {
-        _isMoving = !_isMoving;
+        _isMoving = false;
     }
 }
