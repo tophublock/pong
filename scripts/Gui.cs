@@ -16,11 +16,13 @@ public class Gui : Control
 
     public void UpdatePlayerScore(int score)
     {
-
+        var playerScore = _scoreContainer.GetNode<Label>("NinePatchRect/PlayerScore");
+        playerScore.Text = score.ToString();
     }
 
     public void UpdateEnemyScore(int score)
     {
-
+        var enemyScore = _scoreContainer.GetNode<Label>("NinePatchRect/EnemyScore");
+        enemyScore.Text = score.ToString();
     }
 }

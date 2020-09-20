@@ -4,12 +4,16 @@ using System;
 public class Main : Node
 {
 
-    private int _score;
+    private int _playerScore;
+    private int _enemyScore;
+    private Gui _gui;
 
     public override void _Ready()
     {
         //TODO: refactor into NewGame() function
-        _score = 0;
+        _playerScore = 0;
+        _enemyScore = 0;
+        _gui = GetNode<Gui>("Gui");
 
         // TODO: make position relative to screen size?
         var player = GetNode<Paddle>("Player");
@@ -32,11 +36,13 @@ public class Main : Node
     {
         if (side.Equals("left"))
         {
-            // TODO: update enemy score
+            _gui.UpdateEnemyScore(++_enemyScore);
         }
         else if (side.Equals("right"))
         {
-            // TODO: update player score
+            _gui.UpdatePlayerScore(++_playerScore);
         }
+
+        // TODO: reset game
     }
 }
