@@ -41,7 +41,7 @@ public class Main : Node
             _gui.UpdatePlayerScore(++_playerScore);
         }
 
-        // TODO: reset game
+        NewRound();
     }
 
     private void NewGame()
@@ -52,14 +52,21 @@ public class Main : Node
 
     async private void GameOver()
     {
-        var startTimer = GetNode<Timer>("StartTimer");
-        startTimer.Start();
-        await ToSignal(startTimer, "timeout");
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
         _gui.PromptNewGame();
     }
 
-    private void NewRound()
+    async private void NewRound()
     {
         // Reset ball to middle
+        var ball = GetNode<Ball>("Ball");
+        ball.Stop();
+
+        var startTimer = GetNode<Timer>("StartTimer");
+        startTimer.Start();
+        await ToSignal(startTimer, "timeout");
+
+        var ballPosition = GetNode<Position2D>("BallStartPosition");
+        ball.Start(ballPosition.Position);
     }
 }
