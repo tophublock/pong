@@ -5,8 +5,14 @@ public class Ball : Area2D
 {
 
     public Vector2 direction = Vector2.Left;
+    private float DEFAULT_SPEED = 350;
     private bool _isMoving = false;
-    private float _speed = 500;
+    private float _speed;
+
+    public override void _Ready()
+    {
+        _speed = DEFAULT_SPEED;
+    }
 
     public override void _Process(float delta)
     {
@@ -31,5 +37,6 @@ public class Ball : Area2D
     public void Stop()
     {
         _isMoving = false;
+        _speed = DEFAULT_SPEED;
     }
 }
