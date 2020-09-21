@@ -33,7 +33,6 @@ public class Gui : Control
     public void PromptNewGame()
     {
         _newGameContainer.Show();
-        // TODO: add button functions
     }
 
     public void OnYesButtonPressed()

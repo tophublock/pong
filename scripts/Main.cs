@@ -15,12 +15,10 @@ public class Main : Node
     public override void _Ready()
     {
         _gui = GetNode<Gui>("Gui");
-        // TODO: make position relative to screen size?
         _player = GetNode<Paddle>("Player");
         _enemy = GetNode<Enemy>("Enemy");
         _ball = GetNode<Ball>("Ball");
 
-        // TODO: When Timer reaches 0, start game. Add signal
         GetNode<Timer>("StartTimer").Start();
         newGame();
     }

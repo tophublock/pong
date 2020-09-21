@@ -8,11 +8,6 @@ public class Ball : Area2D
     private bool _isMoving = false;
     private float _speed = 300;
 
-    public override void _Ready()
-    {
-        
-    }
-
     public override void _Process(float delta)
     {
         if (_isMoving)

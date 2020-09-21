@@ -23,10 +23,6 @@ public class Wall : Area2D
         {
             if (_isSideWall)
             {
-                // TODO: end game
-                var nx = -1 * ball.direction.x;
-                var ny = ball.direction.y;
-                ball.direction = new Vector2(nx, ny).Normalized();
                 EmitSignal(nameof(OutOfBounds));
             }
             else
