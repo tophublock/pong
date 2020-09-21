@@ -37,3 +37,5 @@ script = ExtResource( 6 )
 
 [node name="Gui" parent="." instance=ExtResource( 7 )]
 [connection signal="OutOfBounds" from="Walls" to="." method="OnWallsOutOfBounds"]
+[connection signal="EndGame" from="Gui" to="." method="OnGuiEndGame"]
+[connection signal="NewGame" from="Gui" to="." method="OnGuiNewGame"]

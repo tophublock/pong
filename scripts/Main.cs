@@ -75,7 +75,11 @@ public class Main : Node
     private void newGame()
     {
         _playerScore = 0;
+        _gui.UpdatePlayerScore(_playerScore);
+
         _enemyScore = 0;
+        _gui.UpdateEnemyScore(_enemyScore);
+
         resetPositions();
         startEntities();
     }
@@ -97,5 +101,15 @@ public class Main : Node
         startTimer.Start();
         await ToSignal(startTimer, "timeout");
         startEntities();
+    }
+
+    public void OnGuiNewGame()
+    {
+        newGame();
+    }
+
+    public void OnGuiEndGame()
+    {
+        GetTree().Quit();
     }
 }

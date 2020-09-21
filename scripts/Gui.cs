@@ -4,6 +4,10 @@ using System;
 public class Gui : Control
 {
 
+    [Signal]
+    public delegate void NewGame();
+    [Signal]
+    public delegate void EndGame();
     private MarginContainer _scoreContainer;
     private MarginContainer _newGameContainer;
 
@@ -30,5 +34,17 @@ public class Gui : Control
     {
         _newGameContainer.Show();
         // TODO: add button functions
+    }
+
+    public void OnYesButtonPressed()
+    {
+        EmitSignal(nameof(NewGame));
+        _newGameContainer.Hide();
+    }
+
+    public void OnNoButtonPressed()
+    {
+        EmitSignal(nameof(EndGame));
+        _newGameContainer.Hide();
     }
 }

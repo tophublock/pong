@@ -123,7 +123,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="NewGame/NinePatchRect"]
+[node name="YesButton" type="Button" parent="NewGame/NinePatchRect"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -136,7 +136,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button2" type="Button" parent="NewGame/NinePatchRect"]
+[node name="NoButton" type="Button" parent="NewGame/NinePatchRect"]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -150,3 +150,5 @@ text = "No"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="NewGame/NinePatchRect/YesButton" to="." method="OnYesButtonPressed"]
+[connection signal="pressed" from="NewGame/NinePatchRect/NoButton" to="." method="OnNoButtonPressed"]
